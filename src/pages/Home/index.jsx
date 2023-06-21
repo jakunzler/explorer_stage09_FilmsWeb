@@ -20,25 +20,70 @@ export function Home() {
             </Header>
 
             <Content>
-                <Section title="My Movies" >
-                    {
-                        <Note 
-                            key={String(note.id)}
-                            data={
-                                {
-                                title: "Interestellar",
-                                description: "Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se comunicar com ela. Pai e filha descobrem que o 'fantasma' é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional, deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand. O cientista revela que um buraco de minhoca foi aberto perto de Saturno e que ele leva a planetas que podem oferecer condições de sobrevivência para a espécie humana. As 'missões Lázaro' enviadas anos antes identificaram três planetas potencialmente habitáveis orbitando o buraco negro Gargântua: Miller, Edmunds e Mann – nomeados em homenagem aos astronautas que os pesquisaram. Brand recruta Cooper para pilotar a nave espacial Endurance e recuperar os dados dos astronautas; se um dos planetas se mostrar habitável, a humanidade irá seguir para ele na instalação da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper devasta Murphy. Além de Cooper, a tripulação da Endurance é formada pela bióloga Amelia, filha de Brand; o cientista Romilly, o físico planetário Doyle, além dos robôs TARS e CASE. Eles entram no buraco de minhoca e se dirigem a Miller, porém descobrem que o planeta possui enorme dilatação gravitacional temporal por estar tão perto de Gargântua: cada hora na superfície equivale a sete anos na Terra. Eles entram em Miller e descobrem que é inóspito já que é coberto por um oceano raso e agitado por ondas enormes. Uma onda atinge a tripulação enquanto Amelia tenta recuperar os dados de Miller, matando Doyle e atrasando a partida. Ao voltarem para a Endurance, Cooper e Amelia descobrem que 23 anos se passaram.",
-                                }
-                            }
-                        />
-                    }
-                    
-                </ Section>
-
                 <div>
                     <Button title="+ Add new" to="/create"/>                    
                 </div>
                 
+                <Section title="My Movies" >
+                    <Note 
+                        key={String(1)}
+                        data={
+                            {
+                                title: "Interestellar",
+                                description: "Crop pests caused human civilization to regress to an agrarian society in an unknown future date. Cooper, a former NASA pilot, has a farm with his family. Murphy, Cooper's ten-year-old daughter, believes her room is haunted by a ghost that is trying to communicate with her. Father and daughter discover that the 'ghost' is an unknown intelligence that is sending encoded messages through gravitational radiation, leaving binary coordinates that lead them to a secret NASA facility led by Professor John Brand. The scientist reveals that a wormhole has been opened near Saturn, leading to planets that may offer survival conditions for the human species. The 'Lazarus missions' sent years before identified three potentially habitable planets orbiting the black hole Gargantua: Miller, Edmunds, and Mann - named after the astronauts who researched them. Brand recruits Cooper to pilot the spacecraft Endurance and retrieve the astronauts' data; if one of the planets proves habitable, humanity will relocate to it at the NASA facility, which is actually a massive space station. Cooper's departure devastates Murphy. In addition to Cooper, the Endurance crew consists of biologist Amelia, Brand's daughter; scientist Romilly, planetary physicist Doyle, and the robots TARS and CASE. They enter the wormhole and head towards Miller, but discover that the planet experiences significant temporal gravitational dilation due to its proximity to Gargantua: every hour on the surface equals seven years on Earth. They land on Miller and discover it to be inhospitable, as it is covered by a shallow ocean and plagued by massive waves. An incoming wave hits the crew while Amelia attempts to retrieve Miller's data, killing Doyle and delaying their departure. Upon returning to the Endurance, Cooper and Amelia realize that 23 years have passed.",
+                                tags: [{id: 1, name: "drama"}, {id: 2, name: "sci-fi"}, {id: 3, name: "space"}]
+                            }
+                        }
+                    />
+
+                    <Note 
+                        key={String(1)}
+                        data={
+                            {
+                                title: "Interestellar",
+                                description: "Crop pests caused human civilization to regress to an agrarian society in an unknown future date. Cooper, a former NASA pilot, has a farm with his family. Murphy, Cooper's ten-year-old daughter, believes her room is haunted by a ghost that is trying to communicate with her. Father and daughter discover that the 'ghost' is an unknown intelligence that is sending encoded messages through gravitational radiation, leaving binary coordinates that lead them to a secret NASA facility led by Professor John Brand. The scientist reveals that a wormhole has been opened near Saturn, leading to planets that may offer survival conditions for the human species. The 'Lazarus missions' sent years before identified three potentially habitable planets orbiting the black hole Gargantua: Miller, Edmunds, and Mann - named after the astronauts who researched them. Brand recruits Cooper to pilot the spacecraft Endurance and retrieve the astronauts' data; if one of the planets proves habitable, humanity will relocate to it at the NASA facility, which is actually a massive space station. Cooper's departure devastates Murphy. In addition to Cooper, the Endurance crew consists of biologist Amelia, Brand's daughter; scientist Romilly, planetary physicist Doyle, and the robots TARS and CASE. They enter the wormhole and head towards Miller, but discover that the planet experiences significant temporal gravitational dilation due to its proximity to Gargantua: every hour on the surface equals seven years on Earth. They land on Miller and discover it to be inhospitable, as it is covered by a shallow ocean and plagued by massive waves. An incoming wave hits the crew while Amelia attempts to retrieve Miller's data, killing Doyle and delaying their departure. Upon returning to the Endurance, Cooper and Amelia realize that 23 years have passed.",
+                                tags: [{id: 1, name: "drama"}, {id: 2, name: "sci-fi"}, {id: 3, name: "space"}]
+                            }
+                    }
+                    />
+                    
+                    <Note 
+                            key={String(1)}
+                            data={
+                                {
+                                    title: "Interestellar",
+                                    description: "Crop pests caused human civilization to regress to an agrarian society in an unknown future date. Cooper, a former NASA pilot, has a farm with his family. Murphy, Cooper's ten-year-old daughter, believes her room is haunted by a ghost that is trying to communicate with her. Father and daughter discover that the 'ghost' is an unknown intelligence that is sending encoded messages through gravitational radiation, leaving binary coordinates that lead them to a secret NASA facility led by Professor John Brand. The scientist reveals that a wormhole has been opened near Saturn, leading to planets that may offer survival conditions for the human species. The 'Lazarus missions' sent years before identified three potentially habitable planets orbiting the black hole Gargantua: Miller, Edmunds, and Mann - named after the astronauts who researched them. Brand recruits Cooper to pilot the spacecraft Endurance and retrieve the astronauts' data; if one of the planets proves habitable, humanity will relocate to it at the NASA facility, which is actually a massive space station. Cooper's departure devastates Murphy. In addition to Cooper, the Endurance crew consists of biologist Amelia, Brand's daughter; scientist Romilly, planetary physicist Doyle, and the robots TARS and CASE. They enter the wormhole and head towards Miller, but discover that the planet experiences significant temporal gravitational dilation due to its proximity to Gargantua: every hour on the surface equals seven years on Earth. They land on Miller and discover it to be inhospitable, as it is covered by a shallow ocean and plagued by massive waves. An incoming wave hits the crew while Amelia attempts to retrieve Miller's data, killing Doyle and delaying their departure. Upon returning to the Endurance, Cooper and Amelia realize that 23 years have passed.",
+                                    tags: [{id: 1, name: "drama"}, {id: 2, name: "sci-fi"}, {id: 3, name: "space"}]
+                                }
+                            }
+                        />
+                    
+                    
+                    <Note 
+                            key={String(1)}
+                            data={
+                                {
+                                    title: "Interestellar",
+                                    description: "Crop pests caused human civilization to regress to an agrarian society in an unknown future date. Cooper, a former NASA pilot, has a farm with his family. Murphy, Cooper's ten-year-old daughter, believes her room is haunted by a ghost that is trying to communicate with her. Father and daughter discover that the 'ghost' is an unknown intelligence that is sending encoded messages through gravitational radiation, leaving binary coordinates that lead them to a secret NASA facility led by Professor John Brand. The scientist reveals that a wormhole has been opened near Saturn, leading to planets that may offer survival conditions for the human species. The 'Lazarus missions' sent years before identified three potentially habitable planets orbiting the black hole Gargantua: Miller, Edmunds, and Mann - named after the astronauts who researched them. Brand recruits Cooper to pilot the spacecraft Endurance and retrieve the astronauts' data; if one of the planets proves habitable, humanity will relocate to it at the NASA facility, which is actually a massive space station. Cooper's departure devastates Murphy. In addition to Cooper, the Endurance crew consists of biologist Amelia, Brand's daughter; scientist Romilly, planetary physicist Doyle, and the robots TARS and CASE. They enter the wormhole and head towards Miller, but discover that the planet experiences significant temporal gravitational dilation due to its proximity to Gargantua: every hour on the surface equals seven years on Earth. They land on Miller and discover it to be inhospitable, as it is covered by a shallow ocean and plagued by massive waves. An incoming wave hits the crew while Amelia attempts to retrieve Miller's data, killing Doyle and delaying their departure. Upon returning to the Endurance, Cooper and Amelia realize that 23 years have passed.",
+                                    tags: [{id: 1, name: "drama"}, {id: 2, name: "sci-fi"}, {id: 3, name: "space"}],
+                                    rate: 4
+                                }
+                            }
+                        />
+                    
+                    <Note 
+                            key={String(1)}
+                            data={
+                                {
+                                    title: "Interestellar",
+                                    description: "Crop pests caused human civilization to regress to an agrarian society in an unknown future date. Cooper, a former NASA pilot, has a farm with his family. Murphy, Cooper's ten-year-old daughter, believes her room is haunted by a ghost that is trying to communicate with her. Father and daughter discover that the 'ghost' is an unknown intelligence that is sending encoded messages through gravitational radiation, leaving binary coordinates that lead them to a secret NASA facility led by Professor John Brand. The scientist reveals that a wormhole has been opened near Saturn, leading to planets that may offer survival conditions for the human species. The 'Lazarus missions' sent years before identified three potentially habitable planets orbiting the black hole Gargantua: Miller, Edmunds, and Mann - named after the astronauts who researched them. Brand recruits Cooper to pilot the spacecraft Endurance and retrieve the astronauts' data; if one of the planets proves habitable, humanity will relocate to it at the NASA facility, which is actually a massive space station. Cooper's departure devastates Murphy. In addition to Cooper, the Endurance crew consists of biologist Amelia, Brand's daughter; scientist Romilly, planetary physicist Doyle, and the robots TARS and CASE. They enter the wormhole and head towards Miller, but discover that the planet experiences significant temporal gravitational dilation due to its proximity to Gargantua: every hour on the surface equals seven years on Earth. They land on Miller and discover it to be inhospitable, as it is covered by a shallow ocean and plagued by massive waves. An incoming wave hits the crew while Amelia attempts to retrieve Miller's data, killing Doyle and delaying their departure. Upon returning to the Endurance, Cooper and Amelia realize that 23 years have passed.",
+                                    tags: [{id: 1, name: "drama"}, {id: 2, name: "sci-fi"}, {id: 3, name: "space"}]
+                                }
+                            }
+                        />
+                    
+                </ Section>
+
             </Content>
         </Container>
     )

@@ -6,22 +6,26 @@ export const Container = styled.div`
 
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 105px 128px auto 64px;
+    grid-template-rows: 105px auto;
     grid-template-areas:
     "header"
     "content";
 `;
 
 export const Content = styled.div`
+    position: relative;
     grid-area: content;
     padding: 0 7vw;
-    overflow-y: auto;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    overflow: hidden;
 
     > div {
+        position: absolute;
+        top: 0;
+        right: 7vw;
+ 
         width: 15vw;
     }
 `;
