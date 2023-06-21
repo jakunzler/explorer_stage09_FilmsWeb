@@ -3,8 +3,6 @@ import { Container, Form, Background } from './styles';
 import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { api } from '../../services/api';
-
 import { Input} from '../../components/Input';
 import { Button} from '../../components/Button';
 
@@ -16,39 +14,21 @@ export function SignUp() {
     const navigate = useNavigate();
 
     function handleSignUp() {
-        console.log(name, email, password)
         if(!name || !email || !password) {
             alert('Fill all fields!');
             return;
         }
-
-        api.post('/users', {
-            name,
-            email,
-            password
-        }).then(() => {
-            alert('User created!');
-            navigate('/');
-        } ).catch(error => {
-            if(error.response) {
-                alert(error.response.data.message);
-            } else {
-                alert('Error on create user!');
-            };
-        });
     }
 
     return (
         <Container>
             
-            <Background />
-
             <Form>
                 
-                <h1>Rocket Notes</h1>
-                <p>Aplicação para salvar e gerenciar seus links úteis.</p>
+                <h1>RocketMovies</h1>
+                <p>Save and manage your favorite movies.</p>
 
-                <h2>Crie sua conta!</h2>
+                <h2>Sign up!</h2>
 
                 <Input
                     placeholder="Nome"
@@ -73,14 +53,16 @@ export function SignUp() {
 
                 />
 
-                <Button title="Cadastrar" onClick={ handleSignUp } />
+                <Button title="Register" onClick={ handleSignUp } />
 
                 <Link to="/">
-                    Voltar para login
+                    Back to login
                 </Link>
 
             </Form>
             
+            <Background />
+
         </Container>
     );
 }

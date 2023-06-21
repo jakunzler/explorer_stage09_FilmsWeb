@@ -16,8 +16,6 @@ import { NoteItem } from '../../components/NoteItem';
 
 import { Section } from '../../components/Section';
 
-import { api } from '../../services/api';
-
 import { useNavigate } from 'react-router-dom';
 
 export function New() {
@@ -62,13 +60,6 @@ export function New() {
         if(newTag) {
             return alert('There is a tag that has not been added!')
         }
-
-        await api.post('/notes', {
-            title,
-            description,
-            links,
-            tags
-        });
 
         alert('New note added!');
         navigate(-1);

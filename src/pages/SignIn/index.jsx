@@ -3,8 +3,6 @@ import { Container, Form, Background } from './styles';
 import { FiMail, FiLock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-import { useAuth } from '../../hooks/auth';
-
 import { Input} from '../../components/Input';
 import { Button} from '../../components/Button';
 
@@ -12,7 +10,7 @@ export function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { signIn } = useAuth();
+    const { signIn } = {};
 
     function handleSignIn() {
         signIn({
@@ -25,10 +23,10 @@ export function SignIn() {
         <Container>
             <Form>
                 
-                <h1>Rocket Notes</h1>
-                <p>Aplicação para salvar e gerenciar seus links úteis.</p>
+                <h1>RocketMovies</h1>
+                <p>Save and manage your favorite movies.</p>
 
-                <h2>Faça seu login</h2>
+                <h2>Please, login!</h2>
 
                 <Input
                     placeholder="E-mail"
@@ -47,7 +45,7 @@ export function SignIn() {
                 <Button title="Entrar" onClick={ handleSignIn } />
 
                 <Link to="/register">
-                    Criar conta
+                    Sign up
                 </Link>
 
             </Form>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import backgroundImg from '../../assets/sign-in_img.png';
+import backgroundImg from '../../assets/sign-in_img.svg';
 
 export const Container = styled.div`
     height: 100vh;
@@ -39,6 +39,10 @@ export const Form = styled.form`
     > a {
         margin-top: 124px;
         color: ${({ theme }) => theme.COLORS.ORANGE};
+    }
+
+    > div {
+        margin-top: 8px;
     }
 
 `;

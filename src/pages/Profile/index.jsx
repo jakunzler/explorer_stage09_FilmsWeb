@@ -6,23 +6,19 @@ import { Container, Form, Avatar } from "./styles"
 
 import { Link } from "react-router-dom"
 
-import { useAuth } from "../../hooks/auth";
-
 import { Input } from "../../components/Input"
 
 import { Button } from "../../components/Button"
 
 import emptyImage from "../../assets/empty-profile.png"
 
-import { api } from "../../services/api";
-
 export function Profile() {
-    const { user, updateProfile } = useAuth();
+    const { user, updateProfile } = { user: { name: "Avatar da Silva Sauro", email: "avatar@email.com" }};
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [oldPassword, setOldPassword] = useState();
     const [newPassword, setNewPassword] = useState();
-    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : emptyImage;
+    const avatarUrl = emptyImage;
     const [avatar, setAvatar] = useState(avatarUrl);
     const [avatarFile, setAvatarFile] = useState(null);
 
@@ -52,7 +48,11 @@ export function Profile() {
         <Container >
             <header>
                 <Link to="/">
-                    <FiArrowLeft />
+                    <div>
+                        <FiArrowLeft />
+                        back                        
+                    </div>
+
                 </Link>
             </header>
 
@@ -75,7 +75,7 @@ export function Profile() {
                 </Avatar>
 
                 <Input
-                    placeholder="Nome"
+                    placeholder="Name"
                     type="text"
                     icon={FiUser}
                     value={name}
@@ -91,20 +91,20 @@ export function Profile() {
                     />
 
                 <Input
-                    placeholder="Senha atual"
+                    placeholder="Current password"
                     type="password"
                     icon={FiLock}
                     onChange={event => setOldPassword(event.target.value)}
                     />
 
                 <Input
-                    placeholder="Nova senha"
+                    placeholder="New password"
                     type="password"
                     icon={FiLock}
                     onChange={event => setNewPassword(event.target.value)}
                     />
 
-                <Button title="Salvar" onClick={ handleUpdate } />
+                <Button title="Save" onClick={ handleUpdate } />
             </Form>
         </Container >
     );

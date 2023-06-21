@@ -1,32 +1,43 @@
-import { RiShutDownLine} from "react-icons/ri";
-import { useAuth } from "../../hooks/auth";
-import { Container, Profile, Logout } from "./styles";
-import { api } from "../../services/api";
+import { Container, Brand, Search, Profile, Logout, Avatar } from "./styles";
+import { Input } from "../Input";
 import emptyImage from "../../assets/empty-profile.png";
 
 export function Header() {
-    const { signOut, user } = useAuth();
+    let { signOut, user } = {};
 
-    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : emptyImage;
+    user = { name: "Avatar da Silva Sauro"}
+    const avatarUrl = user.avatar ? {} : emptyImage;
 
 
     return(
         <Container>
-            <Profile to="/profile">
-                <img 
-                src={avatarUrl} 
-                alt={`Foto do usuário ${user.name}`}
-            />
+            <Brand>
+                <h1>RocketMovies</h1>
+            </Brand>
 
+            <Search>
+                <Input 
+                    placeholder="Enter the title of the movie"
+                    onChange={(event) => setSearch(event.target.value)}
+                />
+            </Search>
+
+            <Profile>
                 <div>
-                    <span>Bem vindo</span>
                     <strong>{user.name}</strong>
+                    <Logout onClick={ signOut }>
+                        logout
+                    </Logout>
                 </div>
-            </Profile>
 
-            <Logout onClick={ signOut }>
-                <RiShutDownLine />
-            </Logout>
+                <Avatar to="/profile">
+                    <img 
+                        src={avatarUrl} 
+                        alt={`Foto do usuário ${user.name}`}
+                    />
+
+                </Avatar>
+            </Profile>
         </Container>
     )
 }

@@ -14,8 +14,6 @@ import { Button } from '../../components/Button';
 
 import { Tag } from '../../components/Tag';
 
-import { api } from '../../services/api';
-
 export function Details() {
     const [data, setData] = useState(null);
 
@@ -30,7 +28,7 @@ export function Details() {
         const confirm = window.confirm("Are you sure you want to delete this note?");
 
         if (confirm) {
-            await api.delete(`notes/${params.id}`);
+            // await api.delete(`notes/${params.id}`);
             navigate(-1);
         }
 
@@ -38,7 +36,7 @@ export function Details() {
 
     useEffect(() => {
         async function fetchNote() {
-            const response = await api.get(`notes/${params.id}`);
+            // const response = await api.get(`notes/${params.id}`);
             setData(response.data);
         }
 

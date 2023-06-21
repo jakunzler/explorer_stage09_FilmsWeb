@@ -16,22 +16,34 @@ export const Container = styled.header`
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 80px;
+    padding: 0 7vw;
 `;
 
-export const Profile = styled(Link)`
+export const Brand = styled.div`
+    grid-area: brand;
+
     display: flex;
     align-items: center;
+    justify-content: center;
 
-    > img {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
+    > h1 {
+        font-size: 24px;
+        color: ${({ theme }) => theme.COLORS.ORANGE};
     }
+
+`;
+
+export const Profile = styled.div`
+    display: flex;
+    align-items: center;
 
     > div {
         display: flex;
         flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-evenly;
         margin-left: 16px;
         line-height: 24px;
 
@@ -47,12 +59,30 @@ export const Profile = styled(Link)`
     }
 `;
 
+export const Avatar = styled(Link)`
+    display: flex;
+    align-items: center;
+
+    > img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+
+        margin-left: 16px;
+    }
+`;
+
+export const Search = styled.div`
+    grid-area: search;
+
+    width: 60%;
+    padding: 0 64px;
+`;
+
 export const Logout = styled.div`
     border: none;
     background: none;
+    cursor: pointer;
 
-    > svg {
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
-        font-size: 36px;
-    }
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
 `;

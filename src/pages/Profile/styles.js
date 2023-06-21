@@ -15,8 +15,16 @@ export const Container = styled.div`
         padding: 0 124px;
 
         svg {
-            color: ${({ theme }) => theme.COLORS.GRAY_100 };
+            color: ${({ theme }) => theme.COLORS.ORANGE };
             font-size: 24px;
+        }
+
+        > a div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            color: ${({ theme }) => theme.COLORS.ORANGE };
         }
     }
 `;
@@ -24,6 +32,10 @@ export const Container = styled.div`
 export const Form = styled.form`
     max-width: 340px;
     margin: 30px auto 0;
+
+    > div {
+        margin-top: 12px;
+    }
 
     > div:nth-child(4) {
         margin-top: 24px;
