@@ -11,20 +11,13 @@ export const Container = styled.div`
 
     > main {
         grid-area: content;
-        overflow-y: auto;
     }
 
-    .tags {
-        display: flex;
-        justify-content: space-between;
-
-        flex-wrap: wrap;
-    }
 `;
 
 export const Form = styled.form`
-    max-width: 550px;
-    margin: 38px auto;
+    height: calc(100vh - 205px);
+    margin: 38px 7vw;
 
     > header {
         display: flex;
@@ -33,9 +26,62 @@ export const Form = styled.form`
 
         margin-bottom: 36px;
 
-        a {
+        > a div {
             font-size: 20px;
-            color: ${({ theme }) => theme.COLORS.GRAY_100};
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+
+            color: ${({ theme }) => theme.COLORS.ORANGE };
         }
+    }
+
+    > section div .input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+
+        margin-bottom: 4rem;
+    }
+
+    > section .markers {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    > section .markers h2 {
+        color: #999591;
+        font-size: 26px;
+        font-weight: 400;
+        margin: 4rem 0 2.4rem;
+    }
+
+    > section .markers .tags {
+        background-color: #0D0C0F;
+        display: flex;
+        align-items: center;
+    }
+
+    > section .markers .tags div {
+        width: auto;
+    }
+
+    > section div .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+    
+    > section div .button .delete {
+        background: ${({ theme }) => theme.COLORS.BACKGROUND_BLACK };
+        color: ${({ theme }) => theme.COLORS.ORANGE };
+    }
+
+    > section textarea {
+        width: 100%;
+        height: 27.4rem;
     }
 `;

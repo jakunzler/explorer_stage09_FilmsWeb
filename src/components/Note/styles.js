@@ -18,6 +18,10 @@ export const Container = styled.button`
         color: ${({theme}) => theme.COLORS.WHITE};
     }
 
+    > div {
+        display: flex;
+    }
+    
     > p {
         flex: 1;
         text-align: left;
@@ -39,4 +43,5 @@ export const Container = styled.button`
         display: flex;
         margin-top: 24px;
     }
+
 `;

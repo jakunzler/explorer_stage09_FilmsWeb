@@ -28,4 +28,9 @@ export const Content = styled.div`
  
         width: 15vw;
     }
+
+    > section button div {
+        display: flex;
+        gap: 6px;
+    }
 `;

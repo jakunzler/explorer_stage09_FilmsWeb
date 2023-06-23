@@ -1,12 +1,16 @@
-import { Container, Links, Content } from './styles';
+import { Container, Links, Content, Avatar } from './styles';
+
+import { FiArrowLeft, FiClock } from 'react-icons/fi';
 
 import { useState, useEffect } from 'react';
 
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { Header } from '../../components/Header';
 
 import { Section } from '../../components/Section';
+
+import { Rate } from '../../components/Rate';
 
 import { ButtonText } from '../../components/ButtonText';
 
@@ -14,91 +18,69 @@ import { Button } from '../../components/Button';
 
 import { Tag } from '../../components/Tag';
 
+import emptyImage from "../../assets/empty-profile.png";
+
 export function Details() {
     const [data, setData] = useState(null);
 
     const params = useParams();
     const navigate = useNavigate();
 
+    const user = { name: "Avatar da Silva Sauro"}
+    const avatarUrl = user.avatar ? {} : emptyImage;
+
     function handleBack() {
         navigate(-1);
     }
 
-    async function handleRemove() {
-        const confirm = window.confirm("Are you sure you want to delete this note?");
-
-        if (confirm) {
-            // await api.delete(`notes/${params.id}`);
-            navigate(-1);
-        }
-
-    }
-
-    useEffect(() => {
-        async function fetchNote() {
-            // const response = await api.get(`notes/${params.id}`);
-            setData(response.data);
-        }
-
-        fetchNote();
-    }, []);
-
     return (
         <Container>
             <Header />
-            {
-                data &&
-                <main>
-                    <Content>
-                        
-                    <ButtonText title="Excluir nota" onClick={ handleRemove }/>
 
-                    <h1>
-                        {data.title}
-                    </h1>
+            <main>
+                <Content>
 
-                    <p>
-                        {data.description}
-                    </p>
-                    
-                    {
-                        data.links && 
+                    <header>
+                        <Link to="/">
+                            <div>
+                                <FiArrowLeft />
+                                back                        
+                            </div>
 
-                        <Section title="Links úteis">
-                            <Links>
-                                {
-                                    data.links.map((link) => (
-                                    <li key={String(link.id)}>
-                                        <a href={link.url} target="_blank">
-                                            {link.url}
-                                        </a>
-                                    </li>
-                                    ))
-                                }
-                            </Links>
-                        </Section>
+                        </Link>
+                    </header>
 
-                    }
-                    {
-                        data.tags &&
-                        <Section title="Marcadores">
-                            {
-                                data.tags.map((tag) => (
-                                    <Tag 
-                                    key={String(tag.id)} 
-                                    title={tag.name} />
-                                ))
-                            }
-                        </Section>
-                    }
+                    <Section title="Interestellar">
+                        <div>
+                            <Rate rate={3.2} />
+                        </div>
+                    </Section>
 
-                    <Button title="Voltar" onClick={ handleBack }/>
-                        
-                    </Content>
-                </main>
+                    <div className="author">
+                        <Avatar>
+                            <img 
+                                src={avatarUrl} 
+                                alt={`Foto do usuário ${user.name}`}
+                            />
+                        </Avatar>
 
-            }
+                        <span>Por {user.name}</span>
 
+                        <FiClock  color="#FF859B"/>
+
+                        <span>2023-06-22T 2:49Z</span>
+                    </div>
+
+                    <div>
+                        {[{id: 1, name: "drama"}, {id: 2, name: "sci-fi"}, {id: 3, name: "space"}].map(tag => <Tag key={tag.id} title={tag.name} />)}
+                    </div>
+
+                    <p>Crop pests caused human civilization to regress to an agrarian society in an unknown future date. Cooper, a former NASA pilot, has a farm with his family. Murphy, Cooper's ten-year-old daughter, believes her room is haunted by a ghost that is trying to communicate with her. Father and daughter discover that the 'ghost' is an unknown intelligence that is sending encoded messages through gravitational radiation, leaving binary coordinates that lead them to a secret NASA facility led by Professor John Brand. The scientist reveals that a wormhole has been opened near Saturn, leading to planets that may offer survival conditions for the human species. The 'Lazarus missions' sent years before identified three potentially habitable planets orbiting the black hole Gargantua: Miller, Edmunds, and Mann - named after the astronauts who researched them. Brand recruits Cooper to pilot the spacecraft Endurance and retrieve the astronauts' data; if one of the planets proves habitable, humanity will relocate to it at the NASA facility, which is actually a massive space station. Cooper's departure devastates Murphy. In addition to Cooper, the Endurance crew consists of biologist Amelia, Brand's daughter; scientist Romilly, planetary physicist Doyle, and the robots TARS and CASE.</p>
+
+                    <p>They enter the wormhole and head towards Miller, but discover that the planet experiences significant temporal gravitational dilation due to its proximity to Gargantua: every hour on the surface equals seven years on Earth. They land on Miller and discover it to be inhospitable, as it is covered by a shallow ocean and plagued by massive waves. An incoming wave hits the crew while Amelia attempts to retrieve Miller's data, killing Doyle and delaying their departure. Upon returning to the Endurance, Cooper and Amelia realize that 23 years have passed.</p>
+
+                </Content>
+            </main>
         </Container>
     )
 }

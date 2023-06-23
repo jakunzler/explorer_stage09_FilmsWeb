@@ -1,3 +1,5 @@
+import { FiArrowLeft } from 'react-icons/fi';
+
 import { useState } from 'react';
 
 import { Header } from '../../components/Header';
@@ -65,75 +67,89 @@ export function New() {
         navigate(-1);
     }
 
+    async function handleDeleteNote() {
+
+        alert('Note deleted!');
+        navigate(-1);
+    }
+ 
+
     return (
         <Container>
-            <Header />
+            <Header/>
             
             <main>
                 <Form>
                     <header>
-                        <h1>Criar nota</h1>
-                        <Link to="/">voltar</Link>
+                        <Link to="/">
+                            <div>
+                                <FiArrowLeft />
+                                back                        
+                            </div>
+
+                        </Link>
                     </header>
 
-                    <Input
-                        placeholder="Título"
-                        onChange={e => setTitle(e.target.value)}
-
-                        />
-
-                    <TextArea
-                        placeholder="Observações"
-                        onChange={e => setDescription(e.target.value)}
-                        />
-
-                    <Section title="Links úteis">
-                        {
-                            links.map((link, index) => (
-                                <NoteItem
-                                key={String(index)}
-                                value={link}
-                                onClick={() => handleRemoveLink(link)}
+                    <Section title="New Film">
+                            
+                        <div className='input'>
+                            <Input
+                                placeholder="Title"
+                                onChange={e => setTitle(e.target.value)}
                             />
-                            ))
-                        }
-                        <NoteItem 
-                        isNew 
-                        placeholder="Novo link"
-                        value={newLink}
-                        onChange={e => setNewLink(e.target.value)}
-                        onClick={handleAddLink}
-                    />
-                    </Section>
 
-                    <Section title="Marcadores">
-                        <div className='tags'>
-                            {
-                                tags.map((tag, index) => (
-                                    <NoteItem 
-                                    key={String(index)}
-                                    value={tag}
-                                    onClick={() => handleRemoveTag(tag)}
-                                />
-                                ))
-                            }
-
-                            <NoteItem 
-                            isNew 
-                            placeholder="nodejs" 
-                            onChange={e => setNewTag(e.target.value)}
-                            value={newTag}
-                            onClick={handleAddTag}
-                        />
+                            <Input
+                                placeholder="Your rating (0-5)"
+                                onChange={e => setTitle(e.target.value)}
+                            />
                         </div>
 
+                        <TextArea
+                            placeholder="Notes"
+                            onChange={e => setDescription(e.target.value)}
+                        />
+
+                        <div className='markers'>
+                            <h2>Tags</h2>
+
+                            <div className='tags'>
+                                <NoteItem
+                                    value={'hello world'}
+                                    onChange={e => setNewTag(e.target.value)}
+                                    onClick={handleAddTag}
+                                />
+
+                                <NoteItem
+                                    value={'reactjs'}
+                                    onChange={e => setNewTag(e.target.value)}
+                                    onClick={handleAddTag}
+                                />
+                                
+                                <NoteItem
+                                    isNew
+                                    placeholder="tag a term"
+                                    value={newTag}
+                                    onChange={e => setNewTag(e.target.value)}
+                                    onClick={handleAddTag}
+                                />
+                            </div>
+                            
+                        </div>
+
+                        <div className='button'>
+                            <Button 
+                                title="Delete movie" 
+                                onClick={ handleDeleteNote }
+                                className='delete'
+                            />
+
+                            <Button 
+                                title="Save modifications" 
+                                onClick={ handleNewNote }
+                            />
+                        </div>
+                        
                     </Section>
-
-                    <Button 
-                        title="Salvar" 
-                        onClick={ handleNewNote }
-                    />
-
                 </Form>
             </main>
         </Container>

@@ -19,7 +19,7 @@ export const Container = styled.header`
     padding: 0 7vw;
 `;
 
-export const Brand = styled.div`
+export const Brand = styled(Link)`
     grid-area: brand;
 
     display: flex;

@@ -9,7 +9,7 @@ export const Container = styled.div`
 
     border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.GRAY_300}` : "none"};
 
-    margin-bottom: 8px;
+    margin: 16px;
     border-radius: 10px;
     padding-right: 16px;
 
@@ -27,8 +27,8 @@ export const Container = styled.div`
     }
 
     > input {
-        height: 56px;
         width: 100%;
+        height: 56px;
 
         padding: 12px;
 

@@ -20,10 +20,12 @@ export const Container = styled.div`
         }
 
         > a div {
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
+            gap: 8px;
+            
             color: ${({ theme }) => theme.COLORS.ORANGE };
         }
     }

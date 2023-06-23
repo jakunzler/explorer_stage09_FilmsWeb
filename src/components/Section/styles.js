@@ -6,15 +6,13 @@ export const Container = styled.section`
 
     > h2 {
         color: ${({ theme }) => theme.COLORS.WHITE};
-        font-size: 20px;
-        font-weight: 700;
-
-        position: fixed;
+        font-size: 36px;
+        font-weight: 500;
     }
 
     > div {
         height: 70%;
-        margin-top: 80px;
+        margin-top: 40px;
         overflow-y: auto;
 
         ::-webkit-scrollbar {

@@ -12,8 +12,20 @@ export const Container = styled.div`
 
     > main {
         grid-area: content;
-        overflow-y: scroll;
-        padding: 64px 0;
+        overflow: scroll;
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: ${({ theme }) => theme.COLORS.ORANGE};
+            border-radius: 8px;
+        }
     }
 
 `;
@@ -31,11 +43,53 @@ export const Links = styled.ul`
 `;
 
 export const Content = styled.div`
-    max-width: 550px;
-    margin: 0 auto;
+    margin: 0 7vw;
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+
+    > header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin: 4rem 0 3.6rem;
+
+        > a div {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+
+            color: ${({ theme }) => theme.COLORS.ORANGE };
+        }
+    }
+
+    > section {
+        height: auto;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    > section div:nth-child(1) {
+        display: flex;
+        gap: 1rem;
+
+        > img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    > section div:nth-child(2) {
+        margin: 0;
+        height: auto;
+    }
 
     > button:first-child {
         align-self: end;
@@ -47,9 +101,33 @@ export const Content = styled.div`
         padding-top: 64px;
     }
 
+    .author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
     p {
         font-size: 16px;
-        margin-top: 16px;
+        margin-top: 4rem;
         text-align: justify;
+    }
+
+    p + p {
+        margin-top: 1rem;
+    }
+`;
+
+export const Avatar = styled.div`
+    display: flex;
+    align-items: center;
+
+    > img {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+
+        margin-left: 0;
     }
 `;

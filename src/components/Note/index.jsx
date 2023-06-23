@@ -2,16 +2,16 @@ import  { Container } from './styles';
 
 import { Tag } from '../Tag';
 
-// import { Rate } from '../Rate';
+import { Rate } from '../Rate';
 
 export function Note({ data, ...rest }) {
     return(
         <Container {...rest}>
             <h1>{data.title}</h1>
-{/* 
+
             <div>
-                <Rate data={data.rate} />
-            </div> */}
+                <Rate rate={data.rate} />
+            </div>
 
             <p>{data.description}</p>
 
