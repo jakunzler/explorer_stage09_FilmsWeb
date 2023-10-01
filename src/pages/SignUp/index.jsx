@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Input} from '../../components/Input';
 import { Button} from '../../components/Button';
 
+import { api } from '../../services/api';
+
 export function SignUp() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -16,8 +18,16 @@ export function SignUp() {
     function handleSignUp() {
         if(!name || !email || !password) {
             alert('Fill all fields!');
-            return;
         }
+
+        api.post("/users", {name, email, password})
+        .then(() => {
+            alert('User created successfully!');
+            navigate('/');
+        })
+        .catch(() => {
+            alert('Error creating user!');
+        });
     }
 
     return (

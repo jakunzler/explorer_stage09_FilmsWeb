@@ -1,13 +1,15 @@
 import { Container, Brand, Search, Profile, Logout, Avatar } from "./styles";
 import { Input } from "../Input";
 import emptyImage from "../../assets/empty-profile.png";
+import { useAuth } from "../../hooks/auth";
+import { api } from "../../services/api";
 
 export function Header() {
-    let { signOut, user } = {};
+    const { signOut, user } = useAuth();
 
-    user = { name: "Avatar da Silva Sauro"}
-    const avatarUrl = user.avatar ? {} : emptyImage;
+    console.log(user);
 
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}files/${user.avatar}` : emptyImage;
 
     return(
         <Container>
@@ -18,7 +20,7 @@ export function Header() {
             <Search>
                 <Input 
                     placeholder="Enter the title of the movie"
-                    onChange={(event) => setSearch(event.target.value)}
+                    // onChange={(event) => setSearch(event.target.value)}
                 />
             </Search>
 
