@@ -11,9 +11,12 @@ import { TextArea } from '../../components/TextArea';
 import { NoteItem } from '../../components/NoteItem';
 import { Section } from '../../components/Section';
 
+import { api } from '../../services/api';
+
 export function New() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [rate, setRate] = useState('');
 
     const [links, setLinks] = useState([]);
     const [newLink, setNewLink] = useState('');
@@ -24,12 +27,12 @@ export function New() {
     const navigate = useNavigate();
 
     function handleAddLink() {
-        setLinks( prevState => [...prevState, newLink]); console.log(newLink, links);
+        setLinks( prevState => [...prevState, newLink]);
         setNewLink('');
     }
 
     function handleRemoveLink(deletedLink) {
-        setLinks( prevState => prevState.filter(item => item !== deletedLink)); console.log(deletedLink, links);
+        setLinks( prevState => prevState.filter(item => item !== deletedLink));
     }
 
     function handleAddTag() {
@@ -54,7 +57,17 @@ export function New() {
             return alert('There is a tag that has not been added!')
         }
 
-        alert('New note added!');
+        const note = {
+            title,
+            description,
+            rate,
+            links,
+            tags
+        }
+
+        const response = await api.post('/notes', note);
+
+        alert(response.data.message);
         navigate(-1);
     }
 
@@ -93,7 +106,7 @@ export function New() {
 
                             <Input
                                 placeholder="Your rating (0-5)"
-                                onChange={e => setTitle(e.target.value)}
+                                onChange={e => setRate(e.target.value)}
                             />
                         </div>
 
@@ -105,13 +118,13 @@ export function New() {
                         <div className='markers'>
                             <h2>Tags</h2>
 
-                            <div className='tags'>
+                            <section className='tags'>
                                 {
                                     tags.map((tag, index) => (
                                         <NoteItem
                                             key={String(index)}
                                             value={tag}
-                                            onClick={ handleRemoveTag(tag) }
+                                            onClick={ () => handleRemoveTag(tag) }
                                         />
                                     ))
                                 }
@@ -122,11 +135,11 @@ export function New() {
                                     onChange={e => setNewTag(e.target.value)}
                                     onClick={ handleAddTag }
                                 />
-                            </div>
+                            </section>
                             
                         </div>
 
-                        <div className='links'>
+                        <section className='links'>
                             <h2>Links</h2>
 
                             <div className='link'>
@@ -135,7 +148,7 @@ export function New() {
                                         <NoteItem
                                             key={String(index)}
                                             value={link}
-                                            onClick={ handleRemoveLink(link) }
+                                            onClick={ () => handleRemoveLink(link) }
                                         />
                                     ))
                                 }
@@ -148,7 +161,7 @@ export function New() {
                                 />
                             </div>
                             
-                        </div>
+                        </section>
 
                         <div className='button'>
                             <Button 

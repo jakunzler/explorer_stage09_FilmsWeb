@@ -64,7 +64,7 @@ export function Details() {
 
                         <FiClock  color="#FF859B"/>
 
-                        <span>2023-06-22T 2:49Z</span>
+                        <span>{movie && movie.updated_at}</span>
                     </div>
 
                     <div>

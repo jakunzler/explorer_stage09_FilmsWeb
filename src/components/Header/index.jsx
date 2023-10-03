@@ -4,8 +4,17 @@ import emptyImage from "../../assets/empty-profile.png";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
 
-export function Header() {
+export function Header(props) {
     const { signOut, user } = useAuth();
+    const { onInputChange } = props;
+
+    const handleInput = async (event) => {
+        const newValue = event.target.value; console.log(newValue);
+        const response = await api.get(`/notes?title=${newValue}`);
+
+        console.log(response.data);
+        onInputChange(response.data);
+    };
 
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}files/${user.avatar}` : emptyImage;
 
@@ -18,7 +27,7 @@ export function Header() {
             <Search>
                 <Input 
                     placeholder="Enter the title of the movie"
-                    // onChange={(event) => setSearch(event.target.value)}
+                    onChange={ handleInput }
                 />
             </Search>
 

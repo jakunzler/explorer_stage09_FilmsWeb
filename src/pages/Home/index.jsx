@@ -19,6 +19,10 @@ export function Home() {
         navigate("/new");
     }
 
+    const handleInputChange = (newValue) => {
+        setMovies(newValue);
+    }
+
     //function to fetch notes from the server
     useEffect(() => {
         async function fetchNotes() {
@@ -31,7 +35,7 @@ export function Home() {
 
     return(
         <Container>
-            <Header/>
+            <Header onInputChange = { handleInputChange } />
 
             <Content>
                 <div>
