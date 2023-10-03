@@ -7,8 +7,6 @@ import { api } from "../../services/api";
 export function Header() {
     const { signOut, user } = useAuth();
 
-    console.log(user);
-
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}files/${user.avatar}` : emptyImage;
 
     return(

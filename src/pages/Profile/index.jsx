@@ -53,7 +53,6 @@ export function Profile() {
     //function to delete a user account
     async function handleDelete() {
 
-        console.log(user.id);
         await api.delete(`/users`);
 
         navigate("/");

@@ -1,24 +1,15 @@
 import { FiArrowLeft } from 'react-icons/fi';
-
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
-import { Header } from '../../components/Header';
 
 import { Container, Form } from './styles';
 
-import { Link } from 'react-router-dom';
-
+import { Header } from '../../components/Header';
 import { Input} from '../../components/Input';
-
 import { Button} from '../../components/Button';
-
 import { TextArea } from '../../components/TextArea';
-
 import { NoteItem } from '../../components/NoteItem';
-
 import { Section } from '../../components/Section';
-
-import { useNavigate } from 'react-router-dom';
 
 export function New() {
     const [title, setTitle] = useState('');
@@ -33,13 +24,13 @@ export function New() {
     const navigate = useNavigate();
 
     function handleAddLink() {
-        setLinks( prevState => [...prevState, newLink]);
+        setLinks( prevState => [...prevState, newLink]); console.log(newLink, links);
         setNewLink('');
     }
 
     function handleRemoveLink(deletedLink) {
-        setLinks(prevState => prevState.filter(item => item !== deletedLink));
-    };
+        setLinks( prevState => prevState.filter(item => item !== deletedLink)); console.log(deletedLink, links);
+    }
 
     function handleAddTag() {
         setTags( prevState => [...prevState, newTag]);
@@ -47,8 +38,8 @@ export function New() {
     }
 
     function handleRemoveTag(deletedTag) {
-        setTags(prevState => prevState.filter(item => item !== deletedTag));
-    };
+        setTags( prevState => prevState.filter(item => item !== deletedTag));
+    }
 
     async function handleNewNote() {
         if(!title) {
@@ -69,11 +60,13 @@ export function New() {
 
     async function handleDeleteNote() {
 
-        alert('Note deleted!');
-        navigate(-1);
+        const confirmation = confirm('Are you sure you want to cancel?');
+
+        if(confirmation) {
+            navigate(-1);
+        }
     }
  
-
     return (
         <Container>
             <Header/>
@@ -113,24 +106,45 @@ export function New() {
                             <h2>Tags</h2>
 
                             <div className='tags'>
-                                <NoteItem
-                                    value={'hello world'}
-                                    onChange={e => setNewTag(e.target.value)}
-                                    onClick={handleAddTag}
-                                />
-
-                                <NoteItem
-                                    value={'reactjs'}
-                                    onChange={e => setNewTag(e.target.value)}
-                                    onClick={handleAddTag}
-                                />
-                                
+                                {
+                                    tags.map((tag, index) => (
+                                        <NoteItem
+                                            key={String(index)}
+                                            value={tag}
+                                            onClick={ handleRemoveTag(tag) }
+                                        />
+                                    ))
+                                }
                                 <NoteItem
                                     isNew
                                     placeholder="tag a term"
                                     value={newTag}
                                     onChange={e => setNewTag(e.target.value)}
-                                    onClick={handleAddTag}
+                                    onClick={ handleAddTag }
+                                />
+                            </div>
+                            
+                        </div>
+
+                        <div className='links'>
+                            <h2>Links</h2>
+
+                            <div className='link'>
+                                {
+                                    links.map((link, index) => (
+                                        <NoteItem
+                                            key={String(index)}
+                                            value={link}
+                                            onClick={ handleRemoveLink(link) }
+                                        />
+                                    ))
+                                }
+                                <NoteItem
+                                    isNew
+                                    placeholder="insert link"
+                                    value={newLink}
+                                    onChange={e => setNewLink(e.target.value)}
+                                    onClick={ handleAddLink }
                                 />
                             </div>
                             
@@ -138,7 +152,7 @@ export function New() {
 
                         <div className='button'>
                             <Button 
-                                title="Delete movie" 
+                                title="Cancel" 
                                 onClick={ handleDeleteNote }
                                 className='delete'
                             />
@@ -154,4 +168,4 @@ export function New() {
             </main>
         </Container>
     );
-};
+}

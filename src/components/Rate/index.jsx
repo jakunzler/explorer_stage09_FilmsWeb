@@ -17,18 +17,5 @@ export function Rate({ rate }) {
     stars.push(<img src={emptyStar} alt="empty star" />);
   }
 
-//   if (decimalPart >= 0.25) {
-//     const starStyle = {
-//       backgroundImage: `linear-gradient(to right, #FF859B ${decimalPart * 100}%, transparent 0%)`,
-//     };
-//     stars.push(
-//       <div className="star" style={starStyle}>
-//         <img src={emptyStar} alt="incomplete star" />
-//       </div>
-//     );
-//   } else {
-//     stars.push(<img src={emptyStar} alt="empty star" />);
-//   }
-
   return <Container>{stars}</Container>;
 }

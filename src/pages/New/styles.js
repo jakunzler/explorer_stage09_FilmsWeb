@@ -44,27 +44,29 @@ export const Form = styled.form`
         gap: 4rem;
 
         margin-bottom: 4rem;
+        width: 99%;
     }
 
-    > section .markers {
+    > section .markers, .links {
         display: flex;
         flex-direction: column;
+        width: 99%;
     }
     
-    > section .markers h2 {
+    > section .markers h2, .links h2 {
         color: #999591;
         font-size: 26px;
         font-weight: 400;
         margin: 4rem 0 2.4rem;
     }
 
-    > section .markers .tags {
+    > section .markers .tags, .links .link {
         background-color: #0D0C0F;
         display: flex;
         align-items: center;
     }
 
-    > section .markers .tags div {
+    > section .markers .tags div, .links .link div {
         width: auto;
     }
 
@@ -73,6 +75,8 @@ export const Form = styled.form`
         align-items: center;
         justify-content: space-between;
         gap: 4rem;
+
+        width: 99%;
     }
     
     > section div .button .delete {
@@ -83,5 +87,7 @@ export const Form = styled.form`
     > section textarea {
         width: 100%;
         height: 27.4rem;
+
+        width: 99%;
     }
 `;
